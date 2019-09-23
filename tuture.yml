@@ -1,7 +1,40 @@
-name: '从零开始用 Express + MongoDB 搭建图片分享网站 '
+name: 从零开始用 Express + MongoDB 搭建图片分享网站
 topics:
   - express
   - mongodb
   - docker
 id: 69b697ed0cd9f890a636c9c78eb2ce0c
-steps: []
+steps:
+  - name: 初始化项目结构
+    commit: f50be54
+    diff:
+      - file: .gitignore
+      - file: package-lock.json
+      - file: package.json
+        display: true
+        explain:
+          pre: |-
+            首先我们创建一个 npm 项目：
+
+            ```bash
+            $ npm init
+            ```
+
+            添加 express 的项目依赖：
+
+            ```bash
+            $ npm install express
+            ```
+
+            最终生成的 package.json 文件如下：
+      - file: server.js
+        display: true
+        explain:
+          pre: 然后编写服务器的入口文件 `server.js`，内容如下：
+      - file: tuture.yml
+    explain:
+      post: >+
+        通过 `node server.js` 运行 server.js 文件，然后在浏览器中访问
+        [http://localhost:3000](http://localhost:3000)，便可以看到服务器的返回的 Hello World：
+
+description: 在这篇教程中，我们将用 Node.js 中最流行的 Express 框架搭建一个类似 Instagram 的图片分享社区，数据库选用 MongoDB。

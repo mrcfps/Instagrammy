@@ -1,6 +1,8 @@
 const express = require('express');
+const configure = require('./server/configure');
 
 app = express();
+app = configure(app);
 app.set('port', process.env.PORT || 3000);
 
 app.get('/', function(req, res) {

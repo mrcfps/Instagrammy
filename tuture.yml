@@ -37,4 +37,15 @@ steps:
         通过 `node server.js` 运行 server.js 文件，然后在浏览器中访问
         [http://localhost:3000](http://localhost:3000)，便可以看到服务器的返回的 Hello World：
 
+  - name: 配置中间件
+    commit: f17c971
+    diff:
+      - file: package-lock.json
+      - file: package.json
+        display: true
+      - file: server.js
+        display: true
+      - file: server/configure.js
+        display: true
+      - file: tuture.yml
 description: 在这篇教程中，我们将用 Node.js 中最流行的 Express 框架搭建一个类似 Instagram 的图片分享社区，数据库选用 MongoDB。

@@ -1,0 +1,22 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">最新评论</h3>
+  </div>
+  <div class="panel-body">
+    <ul class="media-list">
+      {{#each sidebar.comments}}
+      <li class="media">
+        <a href="/images/{{image.uniqueId}}" class="pull-left">
+          <img src="/public/upload/{{image.filename}}" class="media-object"
+            height="45" width="45">
+        </a>
+        <div class="media-body">
+          {{comment}}<br/>
+          <strong class="media-heading">{{name}}</strong>
+          <small class="text-muted">{{timestamp}}</small>
+        </div>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+</div>

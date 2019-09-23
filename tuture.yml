@@ -48,4 +48,51 @@ steps:
       - file: server/configure.js
         display: true
       - file: tuture.yml
+  - name: 搭建路由和控制器
+    commit: 5313abe
+    diff:
+      - file: controllers/home.js
+        display: true
+      - file: controllers/image.js
+        display: true
+      - file: server.js
+        display: true
+      - file: server/configure.js
+        display: true
+      - file: server/routes.js
+        display: true
+      - file: tuture.yml
+    explain:
+      post: >-
+        到了这一步，我们运行服务器，打开浏览器访问
+        [http://localhost:3000](http://localhost:3000)，可以看到 `The home:index
+        controller` 的信息；访问
+        [http://localhost:3000/test123](http://localhost:3000/test123)，则是 `The
+        image:index controller test123`。进一步，我们还可以通过 Postman 或者 curl 等工具测试 POST
+        方法的 controller 是否可用。下面以 curl 为例测试 `POST /images`：
+
+
+        ```bash
+
+        $ curl -X POST localhost:3000/images
+
+        The image:create POST controller
+
+        ```
+  - name: 配置 handlebars 模板引擎
+    commit: 170175c
+    diff:
+      - file: controllers/home.js
+        display: true
+      - file: controllers/image.js
+        display: true
+      - file: server/configure.js
+        display: true
+      - file: tuture.yml
+      - file: views/image.handlebars
+        display: true
+      - file: views/index.handlebars
+        display: true
+      - file: views/layouts/main.handlebars
+        display: true
 description: 在这篇教程中，我们将用 Node.js 中最流行的 Express 框架搭建一个类似 Instagram 的图片分享社区，数据库选用 MongoDB。

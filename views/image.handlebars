@@ -18,7 +18,7 @@
         <strong class="likes-count">{{image.likes}}</strong> &nbsp; - &nbsp;
         <i class="fa fa-eye"></i>
         <strong>{{image.views}}</strong>
-        &nbsp; - &nbsp; 发表于: <em class="text-muted">{{image.timestamp}}</em>
+        &nbsp; - &nbsp; 发表于: <em class="text-muted">{{timeago image.timestamp}}</em>
       </div>
       <div class="col-md-4 text-right">
         <button class="btn btn-danger" id="btn-delete" data-id="{{image.uniqueId}}">
@@ -81,7 +81,7 @@
           {{comment}}
           <br/>
           <strong class="media-heading">{{name}}</strong>
-          <small class="text-muted">{{timestamp}}</small>
+          <small class="text-muted">{{timeago timestamp}}</small>
         </div>
       </li>
       {{/each}}

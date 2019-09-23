@@ -96,12 +96,12 @@ steps:
         display: true
       - file: tuture.yml
   - name: 完善界面代码
-    commit: 934990c
+    commit: 3b969d1
     diff:
       - file: tuture.yml
-      - file: views/image.handlebars
-        display: true
       - file: views/index.handlebars
+        display: true
+      - file: views/image.handlebars
         display: true
       - file: views/layouts/main.handlebars
         display: true
@@ -111,4 +111,6 @@ steps:
         display: true
       - file: views/partials/stats.handlebars
         display: true
+    explain:
+      post: 注意在实际调整页面代码时，在修改并保存后只需刷新浏览器即可看到界面的变化（但是如果修改服务器代码则需要重新运行服务器）。
 description: 在这篇教程中，我们将用 Node.js 中最流行的 Express 框架搭建一个类似 Instagram 的图片分享社区，数据库选用 MongoDB。

@@ -29,4 +29,41 @@
   </div>
 </body>
 
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script>
+  $(function () {
+    // to do...
+  });
+
+  $('#btn-like').on('click', function (event) {
+    event.preventDefault();
+    var imgId = $(this).data('id');
+    $.post('/images/' + imgId + '/like').done(function (data) {
+      $('.likes-count').text(data.likes);
+    });
+  });
+
+  $('#btn-delete').on('click', function (event) {
+    event.preventDefault();
+    var $this = $(this);
+
+    var remove = confirm('确定要删除这张图片吗?');
+    if (remove) {
+      var imgId = $(this).data('id');
+      $
+        .ajax({
+          url: '/images/' + imgId,
+          type: 'DELETE'
+        })
+        .done(function (result) {
+          if (result) {
+            $this.removeClass('btn-danger').addClass('btn-success');
+            $this.find('i').removeClass('fa-times').addClass('fa-check');
+            $this.append('<span> 已删除!</span>');
+          }
+        });
+    }
+  });
+</script>
+
 </html>

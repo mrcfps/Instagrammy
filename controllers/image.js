@@ -61,7 +61,40 @@ module.exports = {
     }
   },
   like: function(req, res) {
-    res.send('The image:like POST controller');
+    ImageModel.findOne({ filename: { $regex: req.params.image_id } }, function(
+      err,
+      image,
+    ) {
+      if (!err && image) {
+        image.likes += 1;
+        image.save(function(err) {
+          if (err) res.json(err);
+          else res.json({ likes: image.likes });
+        });
+      }
+    });
+  },
+  remove: function(req, res) {
+    ImageModel.findOne({ filename: { $regex: req.params.image_id } }, function(
+      err,
+      image,
+    ) {
+      if (err) throw err;
+      fs.unlink(path.resolve('./public/upload/' + image.filename), function(
+        err,
+      ) {
+        if (err) throw err;
+        CommentModel.remove({ image_id: image._id }, function(err) {
+          image.remove(function(err) {
+            if (!err) {
+              res.json(true);
+            } else {
+              res.json(false);
+            }
+          });
+        });
+      });
+    });
   },
   comment: function(req, res) {
     ImageModel.findOne({ filename: { $regex: req.params.image_id } }, function(

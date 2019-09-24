@@ -33,10 +33,9 @@ steps:
           pre: 然后编写服务器的入口文件 `server.js`，内容如下：
       - file: tuture.yml
     explain:
-      post: >+
+      post: >-
         通过 `node server.js` 运行 server.js 文件，然后在浏览器中访问
         [http://localhost:3000](http://localhost:3000)，便可以看到服务器的返回的 Hello World：
-
   - name: 配置中间件
     commit: f17c971
     diff:
@@ -113,4 +112,21 @@ steps:
         display: true
     explain:
       post: 注意在实际调整页面代码时，在修改并保存后只需刷新浏览器即可看到界面的变化（但是如果修改服务器代码则需要重新运行服务器）。
+  - name: 将数据传入模板视图
+    commit: eecc3e5
+    diff:
+      - file: controllers/home.js
+        display: true
+      - file: controllers/image.js
+        display: true
+      - file: package-lock.json
+      - file: package.json
+        display: true
+      - file: server/configure.js
+        display: true
+      - file: tuture.yml
+      - file: views/image.handlebars
+        display: true
+      - file: views/partials/comments.handlebars
+        display: true
 description: 在这篇教程中，我们将用 Node.js 中最流行的 Express 框架搭建一个类似 Instagram 的图片分享社区，数据库选用 MongoDB。

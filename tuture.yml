@@ -129,4 +129,15 @@ steps:
         display: true
       - file: views/partials/comments.handlebars
         display: true
+  - name: 实现图片上传功能
+    commit: 3b592be
+    diff:
+      - file: controllers/image.js
+        display: true
+      - file: package-lock.json
+      - file: package.json
+        display: true
+      - file: server/routes.js
+        display: true
+      - file: tuture.yml
 description: 在这篇教程中，我们将用 Node.js 中最流行的 Express 框架搭建一个类似 Instagram 的图片分享社区，数据库选用 MongoDB。

@@ -140,4 +140,22 @@ steps:
       - file: server/routes.js
         display: true
       - file: tuture.yml
+    explain:
+      pre: 注意要先创建 `public/upload` 文件夹。
+  - name: 接入 MongoDB 数据库
+    commit: edf67b5
+    diff:
+      - file: .gitignore
+      - file: controllers/home.js
+        display: true
+      - file: controllers/image.js
+        display: true
+      - file: models/image.js
+        display: true
+      - file: package-lock.json
+      - file: package.json
+        display: true
+      - file: server.js
+        display: true
+      - file: tuture.yml
 description: 在这篇教程中，我们将用 Node.js 中最流行的 Express 框架搭建一个类似 Instagram 的图片分享社区，数据库选用 MongoDB。

@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const md5 = require('md5');
+const sidebar = require('../helpers/sidebar');
 const ImageModel = require('../models/image');
 const CommentModel = require('../models/comment');
 
@@ -26,7 +27,9 @@ module.exports = {
           function(err, comments) {
             if (err) throw err;
             viewModel.comments = comments;
-            res.render('image', viewModel);
+            sidebar(viewModel, function(viewModel) {
+              res.render('image', viewModel);
+            });
           },
         );
       } else {

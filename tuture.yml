@@ -37,6 +37,9 @@ steps:
       post: >-
         通过 `node server.js` 运行 server.js 文件，然后在浏览器中访问
         [http://localhost:3000](http://localhost:3000)，便可以看到服务器的返回的 Hello World：
+
+
+        ![](./tuture-assets/figure-1.png)
   - name: 配置中间件
     commit: f17c971
     diff:
@@ -217,7 +220,7 @@ steps:
           pre: 最后，不要忘记在 server/configure.js 模块中配置 handlebars 中间件：
       - file: tuture.yml
     explain:
-      pre: "这一步，我们将开始实现 MVC 中的 V，即 View，用户界面。尽管如今前后端分离已经是大势所趋，但是通过模板引擎在服务器端渲染页面也是有用武之地的，特别是快速地开发一些简单的应用。在模板引擎中，[Handlebars](http://handlebarsjs.com/) 和 [Pug](https://pugjs.org/api/getting-started.html) 当属其中的佼佼者。由于 Handlebars 和普通的 HTML 文档几乎完全一致，容易上手，因此这篇教程中我们选用 Handlebars，并且选用 Bootstrap 样式。\n\n与普通的 HTML 文档相比，模板最大的特点即在于提供了数据的接入。例如 handlebars，可以在双花括号 `{{}}` 之间填写任何数据，当服务器渲染页面时只需传入相应的数据即可渲染成对应的内容。除此之外，handlebars 还支持条件语法、循环语法和模板嵌套等高级功能，下面将详细描述。\n\n我们创建一个 views 目录，用于存放所有的模板代码。views 目录的结构如下所示：\n\n```\nviews\n├── image.handlebars\n├── index.handlebars\n├── layouts\n│\_\_ └── main.handlebars\n└── partials\n    ├── comments.handlebars\n    ├── popular.handlebars\n    └── stats.handlebars\n```\n\n其中 image.handlebars 和 index.handlebars 是***页面模板***，layouts/main.handlebars 则是整个网站的***布局模板***（所有页面共享），partials 目录则用于存放页面之间共享的***组件模板***，例如评论、数据等等。"
+      pre: "这一步，我们将开始实现 MVC 中的 V，即 View，用户界面。\n\n首页的效果如下图所示：\n\n![](./tuture-assets/figure-2.png)\n\n图片详情的效果如下图所示：\n\n![](./tuture-assets/figure-3.png)\n\n尽管如今前后端分离已经是大势所趋，但是通过模板引擎在服务器端渲染页面也是有用武之地的，特别是快速地开发一些简单的应用。在模板引擎中，[Handlebars](http://handlebarsjs.com/) 和 [Pug](https://pugjs.org/api/getting-started.html) 当属其中的佼佼者。由于 Handlebars 和普通的 HTML 文档几乎完全一致，容易上手，因此这篇教程中我们选用 Handlebars，并且选用 Bootstrap 样式。\n\n与普通的 HTML 文档相比，模板最大的特点即在于提供了数据的接入。例如 handlebars，可以在双花括号 `{{}}` 之间填写任何数据，当服务器渲染页面时只需传入相应的数据即可渲染成对应的内容。除此之外，handlebars 还支持条件语法、循环语法和模板嵌套等高级功能，下面将详细描述。\n\n我们创建一个 views 目录，用于存放所有的模板代码。views 目录的结构如下所示：\n\n```\nviews\n├── image.handlebars\n├── index.handlebars\n├── layouts\n│\_\_ └── main.handlebars\n└── partials\n    ├── comments.handlebars\n    ├── popular.handlebars\n    └── stats.handlebars\n```\n\n其中 image.handlebars 和 index.handlebars 是***页面模板***，layouts/main.handlebars 则是整个网站的***布局模板***（所有页面共享），partials 目录则用于存放页面之间共享的***组件模板***，例如评论、数据等等。"
       post: >-
         大功告成！现在运行服务器，分别访问主页（[http://localhost:3000](http://localhost:3000)）和图片详情页面（[http://localhost:3000/images/test](http://localhost:3000/images/test)），可以看到完整的页面（虽然没有数据），包括所有页面共享的头部和每个页面的自定义内容。
   - name: 完善界面代码
@@ -331,9 +334,15 @@ steps:
           post: >-
             `req.file` 是一个 Multer 文件对象，包括
             `path`（上传到服务器的路径）、`filename`（服务器存储的文件名）和
-            `originalname`（文件初始名，即保存在客户端的文件名）等有用的属性。这里我们通过简单的后缀匹配来判断用户上传的是否为图片，如果是，则从临时目录
-            `tempPath` 存放到上传目录 `targetPath` 中，否则直接删除。上传成功后，通过 `res.redirect`
-            将页面重定向到刚刚上传的图片的详情页面。
+            `originalname`（文件初始名，即保存在客户端的文件名）等有用的属性。我截取了一张输出 `req.file`
+            所有字段的图片如下：
+
+
+            ![](./tuture-assets/figure-4.png)
+
+
+            这里我们通过简单的后缀匹配来判断用户上传的是否为图片，如果是，则从临时目录 `tempPath` 存放到上传目录
+            `targetPath` 中，否则直接删除。上传成功后，通过 `res.redirect` 将页面重定向到刚刚上传的图片的详情页面。
       - file: package-lock.json
       - file: package.json
         display: false
@@ -594,4 +603,7 @@ steps:
 
         ```
       post: 侧边栏的所有数据都能够同步更新，我们的网站也基本完成了！
-description: 在这篇教程中，我们将用 Node.js 中最流行的 Express 框架搭建一个类似 Instagram 的图片分享社区，数据库选用 MongoDB。
+description: >-
+  在这篇教程中，我们将用 Node.js 中最流行的 Express 框架搭建一个类似 Instagram 的图片分享社区，数据库选用
+  MongoDB。本教程的代码改编自 Mithun Satheesh，Bruno Joseph D'mello 和 Jason Krol 的《Web
+  Development with MongoDB and NodeJS: Second Edition》一书。

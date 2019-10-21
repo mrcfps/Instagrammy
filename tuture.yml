@@ -1,9 +1,21 @@
 name: 从零开始用 Express + MongoDB 搭建图片分享社区
 topics:
-  - express
-  - mongodb
-  - docker
+  - Node
+  - MongoDB
 id: 69b697ed0cd9f890a636c9c78eb2ce0c
+github: 'https://github.com/mRcfps/Instagrammy'
+splits:
+  - name: 从零开始用 Express + MongoDB 搭建图片分享社区（一）
+    description: >-
+      在这篇教程中，我们将用 Node.js 中最流行的 Express 框架搭建一个类似 Instagram 的图片分享社区，数据库选用
+      MongoDB。本教程的代码改编自 Mithun Satheesh，Bruno Joseph D'mello 和 Jason Krol 的《Web
+      Development with MongoDB and NodeJS: Second Edition》一书。
+    start: f50be54
+    end: eecc3e5
+  - name: 从零开始用 Express + MongoDB 搭建图片分享社区（二）
+    description: 在本系列教程的第二部分中，我们将接入 MongoDB 数据库，并由此实现围绕图片、评论的功能。
+    start: 3b592be
+    end: '6231494'
 steps:
   - name: 初始化项目结构
     commit: f50be54
@@ -274,7 +286,7 @@ steps:
           pre: 同理实现 image 控制器。
       - file: package-lock.json
       - file: package.json
-        display: true
+        display: false
       - file: server/configure.js
         display: true
         explain:
@@ -348,25 +360,17 @@ steps:
         display: false
       - file: tuture.yml
     explain:
-      pre: >-
-        在本系列教程的第二部分中，我们将接入 MongoDB 数据库，并由此实现围绕图片、评论的功能。第一步，我们先实现图片上传功能。创建
-        `public/upload` 文件夹，用于存放用户上传的图片：
-
+      pre: |-
+        第一步，我们先实现图片上传功能。创建 `public/upload` 文件夹，用于存放用户上传的图片：
 
         ```bash
-
         $ mkdir -p public/upload
-
         ```
-
 
         然后安装 multer 中间件用于处理文件上传：
 
-
         ```bash
-
         $ npm install multer
-
         ```
   - name: 接入 MongoDB 数据库
     commit: edf67b5
@@ -604,6 +608,6 @@ steps:
         ```
       post: 侧边栏的所有数据都能够同步更新，我们的网站也基本完成了！
 description: >-
-  在这篇教程中，我们将用 Node.js 中最流行的 Express 框架搭建一个类似 Instagram 的图片分享社区，数据库选用
+  "在这篇教程中，我们将用 Node.js 中最流行的 Express 框架搭建一个类似 Instagram 的图片分享社区，数据库选用
   MongoDB。本教程的代码改编自 Mithun Satheesh，Bruno Joseph D'mello 和 Jason Krol 的《Web
-  Development with MongoDB and NodeJS: Second Edition》一书。
+  Development with MongoDB and NodeJS: Second Edition》一书。"

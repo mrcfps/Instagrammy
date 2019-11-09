@@ -3,6 +3,10 @@ topics:
   - Node
   - Express
   - MongoDB
+categories:
+  - 后端
+  - Node.js
+  - 进阶
 id: 69b697ed0cd9f890a636c9c78eb2ce0c
 github: 'https://github.com/mRcfps/Instagrammy'
 created: 2019-10-16T00:00:00.509Z
@@ -10,8 +14,9 @@ updated: 2019-10-16T02:52:55.509Z
 splits:
   - name: 从零开始用 Express + MongoDB 搭建图片分享社区（一）
     description: >-
-      Node.js 已经成为服务器端开发的主流选择之一，而 Express 则是 Node 平台最耀眼的那个框架。在这篇教程中，我们将用 Node.js 中最流行的 Express 框架搭建一个类似 Instagram 的图片分享社区，数据库选用
-      当今颇受欢迎的非关系型数据库 MongoDB。本教程的代码改编自 Mithun Satheesh，Bruno Joseph D'mello 和 Jason Krol 的《Web
+      Node.js 已经成为服务器端开发的主流选择之一，而 Express 则是 Node 平台最耀眼的那个框架。在这篇教程中，我们将用 Node.js
+      中最流行的 Express 框架搭建一个类似 Instagram 的图片分享社区，数据库选用 当今颇受欢迎的非关系型数据库
+      MongoDB。本教程的代码改编自 Mithun Satheesh，Bruno Joseph D'mello 和 Jason Krol 的《Web
       Development with MongoDB and NodeJS: Second Edition》一书。
     start: f50be54
     end: eecc3e5

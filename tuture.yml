@@ -8,8 +8,8 @@ categories:
   - 进阶
 id: 69b697ed0cd9f890a636c9c78eb2ce0c
 github: 'https://github.com/mRcfps/Instagrammy'
-created: 2019-10-16T00:00:00.509Z
-updated: 2019-10-16T02:52:55.509Z
+created: '2019-10-16T00:00:00.509Z'
+updated: 2019-12-12T10:54:48.995Z
 splits:
   - name: 从零开始用 Express + MongoDB 搭建图片分享社区（一）
     description: >-
@@ -59,6 +59,13 @@ steps:
 
 
         ![](tuture-assets/figure-1.png)
+      pre: >-
+        ::: primary
+
+        此教程属于[Node.js
+        后端工程师学习路线](https://tuture.co/roadmaps/node/)的一部分，点击可查看全部内容。
+
+        :::
   - name: 配置中间件
     commit: f17c971
     diff:
@@ -324,6 +331,14 @@ steps:
       post: >-
         至此，本系列教程的第一部分就已经完成了，MVC 我们实现了 V（视图）和 C （控制器）。在后续教程中，我们将接入 MongoDB
         数据库用于网站数据的存取，并进一步实现图片上传、点赞和删除，以及添加评论等功能。
+
+
+        ::: primary
+
+        此教程属于[Node.js
+        后端工程师学习路线](https://tuture.co/roadmaps/node/)的一部分，点击可查看全部内容。
+
+        :::
   - name: 实现图片上传功能
     commit: 3b592be
     diff:
@@ -367,17 +382,32 @@ steps:
         display: false
       - file: tuture.yml
     explain:
-      pre: |-
+      pre: >-
+        ::: primary
+
+        此教程属于[Node.js
+        后端工程师学习路线](https://tuture.co/roadmaps/node/)的一部分，点击可查看全部内容。
+
+        :::
+
+
         第一步，我们先实现图片上传功能。创建 `public/upload` 文件夹，用于存放用户上传的图片：
 
+
         ```bash
+
         $ mkdir -p public/upload
+
         ```
+
 
         然后安装 multer 中间件用于处理文件上传：
 
+
         ```bash
+
         $ npm install multer
+
         ```
   - name: 接入 MongoDB 数据库
     commit: edf67b5
@@ -613,8 +643,17 @@ steps:
         $ npm install async
 
         ```
-      post: 侧边栏的所有数据都能够同步更新，我们的网站也基本完成了！
+      post: >-
+        侧边栏的所有数据都能够同步更新，我们的网站也基本完成了！
+
+
+        ::: primary
+
+        此教程属于[Node.js
+        后端工程师学习路线](https://tuture.co/roadmaps/node/)的一部分，点击可查看全部内容。
+
+        :::
 description: >-
-  "在这篇教程中，我们将用 Node.js 中最流行的 Express 框架搭建一个类似 Instagram 的图片分享社区，数据库选用
+  在这篇教程中，我们将用 Node.js 中最流行的 Express 框架搭建一个类似 Instagram 的图片分享社区，数据库选用
   MongoDB。本教程的代码改编自 Mithun Satheesh，Bruno Joseph D'mello 和 Jason Krol 的《Web
-  Development with MongoDB and NodeJS: Second Edition》一书。"
+  Development with MongoDB and NodeJS: Second Edition》一书。

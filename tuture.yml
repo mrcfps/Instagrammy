@@ -19,10 +19,12 @@ splits:
       Development with MongoDB and NodeJS: Second Edition》一书。
     start: f50be54
     end: eecc3e5
+    id: a0531f0
   - name: 从零开始用 Express + MongoDB 搭建图片分享社区（二）
     description: 在本系列教程的第二部分中，我们将接入 MongoDB 数据库，并由此实现围绕图片、评论的功能。
     start: 3b592be
     end: '6231494'
+    id: 29f41c0
 steps:
   - name: 初始化项目结构
     commit: f50be54
